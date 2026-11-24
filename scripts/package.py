@@ -11,6 +11,7 @@ NAME = "dos-apes-marketing-site-skill"
 FILES = (
     "SKILL.md",
     "README.md",
+    "LICENSE",
     "references/design-and-content.md",
     "references/review.md",
     "references/build.md",
@@ -77,7 +78,8 @@ def build_chatgpt_guide():
         "in the repository and rebuild rather than editing this copy.\n"
         "Source fingerprint: " + source_hash.hexdigest() + "\n"
     )
-    guide = introduction + "\n\n" + "\n\n---\n\n".join(sections) + "\n"
+    license_text = (ROOT / "LICENSE").read_text(encoding="utf-8").strip()
+    guide = introduction + "\n\n" + "\n\n---\n\n".join(sections) + "\n\n---\n\nLICENSE\n\n" + license_text + "\n"
     require(not re.search(r"\[[^\]]+\]\([^)]+\.md[^)]*\)", guide), "Standalone guide has unresolved file links.")
     output = ROOT / "chatgpt" / GUIDE_NAME
     output.parent.mkdir(exist_ok=True)
@@ -145,7 +147,11 @@ def package():
     standalone_guide = destination.parent / GUIDE_NAME
     standalone_instructions = destination.parent / PROJECT_INSTRUCTIONS_NAME
     standalone_guide.write_bytes(contents["chatgpt/" + GUIDE_NAME])
-    standalone_instructions.write_bytes(contents["chatgpt/project-instructions.txt"])
+    standalone_instructions.write_bytes(
+        contents["chatgpt/project-instructions.txt"].rstrip()
+        + b"\n\n---\n\nLICENSE (reuse notice; not part of the Project instructions)\n\n"
+        + contents["LICENSE"]
+    )
     print(json.dumps({
         "archive": str(destination),
         "files": len(FILES),

@@ -46,7 +46,7 @@ If file upload is unavailable, paste the guide's text into the conversation. The
 
 ### Reuse in a Project
 
-Create or open a ChatGPT Project, add the guide as a project file, and paste the contents of `dos-apes-marketing-site-project-instructions.txt` into the project's instructions. Keep related site materials in that Project and start the task there. Replace the guide file when you want to adopt a newer release.
+Create or open a ChatGPT Project, add the guide as a project file, and paste the instructions above the license notice in `dos-apes-marketing-site-project-instructions.txt` into the project's instructions. Keep related site materials in that Project and start the task there. Replace the guide file when you want to adopt a newer release.
 
 File upload and Project availability depend on the account and workspace. The guide itself does not add tools. Browsing, visual inspection, repository edits, and publishing require suitable capabilities and authorization in the chat you are using. When those are unavailable, it supports review of supplied material, replacement copy, design specifications, and code handoffs, with inspection limits stated.
 
@@ -80,6 +80,7 @@ In ChatGPT, start the examples above with "Use the attached Dos Apes Marketing S
 dos-apes-marketing-site-skill/
   SKILL.md
   README.md
+  LICENSE
   chatgpt/
     dos-apes-marketing-site-guide.txt
     project-instructions.txt
@@ -101,10 +102,18 @@ python scripts/package.py
 
 The script validates the skill, regenerates `chatgpt/dos-apes-marketing-site-guide.txt`, and creates three release downloads in `dist/`:
 
-- `dos-apes-marketing-site-skill.zip`: seven files covering both editions.
+- `dos-apes-marketing-site-skill.zip`: eight files covering both editions, including the license.
 - `dos-apes-marketing-site-guide.txt`: the self-contained ChatGPT guide.
 - `dos-apes-marketing-site-project-instructions.txt`: short reusable Project instructions.
 
 It uses only Python's standard library. The ZIP excludes repository history and maintenance scripts. Do not edit the generated guide directly; change the shared source and rebuild. Commit the regenerated guide with those changes, then attach all three downloads to the new release so the README's links stay valid.
 
 For corrections or suggestions, [open an issue](https://github.com/dos-apes/dos-apes-marketing-site-skill/issues). Include the type of website and a minimal example; remove private client information before posting.
+
+## License and your own copies
+
+Copyright (c) 2026 Dos Apes. This project is available under the [MIT License](LICENSE).
+
+You may use, copy, customize, and redistribute your own copies, including commercially. Keep the copyright and license notice with copies or substantial portions of this project. The ZIP contains the license, and the standalone ChatGPT downloads include it as well.
+
+This permission does not grant write access to the official Dos Apes repository. Changes there remain controlled by its authorized maintainers. You can suggest improvements through an issue or pull request; suggestions do not automatically change the official version.
