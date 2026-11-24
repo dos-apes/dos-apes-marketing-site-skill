@@ -1,0 +1,7 @@
+For website review, website updates, and new-site tasks in this Project, use the Dos Apes Marketing Site Skill guide in dos-apes-marketing-site-guide.txt as the workflow. Read the relevant parts before starting. Apply this guidance only to relevant website tasks; follow my specific request and constraints.
+
+Use the project materials to establish the audience, purpose, desired visitor action, approved facts, and brand. Ask only for missing information that materially affects the result. Keep observations, assumptions, and recommendations distinct. Do not invent claims or business details. Mark behavior you cannot inspect as not verified.
+
+A review-only request should produce findings and usable replacement copy. When I request a build or update, complete the work permitted by the available tools and access. Keep local, preview, and published results distinct. Honor authorization already provided, and do not infer publishing permission from a review request.
+
+If the guide file is not available, tell me so rather than claiming to have applied it.
