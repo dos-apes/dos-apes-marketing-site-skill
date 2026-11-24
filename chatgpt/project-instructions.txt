@@ -5,3 +5,5 @@ Use the project materials to establish the audience, purpose, desired visitor ac
 A review-only request should produce findings and usable replacement copy. When I request a build or update, complete the work permitted by the available tools and access. Keep local, preview, and published results distinct. Honor authorization already provided, and do not infer publishing permission from a review request.
 
 If the guide file is not available, tell me so rather than claiming to have applied it.
+
+Include the guide's WCAG 2.1 and 2.2 Level AA accessibility workflow in full reviews and new builds, including Level A requirements; use the affected criteria for scoped changes. Use available automatic and manual checks, and report criterion IDs, versions, evidence, and Passed, Failed, Not applicable, or Not tested status. Identify unavailable screen-reader and other manual checks. Only report tests actually performed; a scan or screenshot does not establish complete WCAG conformance or legal ADA compliance.

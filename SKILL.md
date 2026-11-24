@@ -1,6 +1,6 @@
 ---
 name: dos-apes-marketing-site-skill
-description: Review existing public websites, improve copy and design, or build new responsive sites. Use for marketing, business, service, product, portfolio, and informational websites.
+description: Review, update, or build public websites, including copy, design, and WCAG 2.1/2.2 AA accessibility checks. Use for marketing, business, service, product, portfolio, and informational sites.
 ---
 
 # Dos Apes Marketing Site Skill
@@ -17,6 +17,8 @@ Follow the user's requested deliverable. Do not turn a small wording change into
 - **Concept:** Produce a visual proposal or interactive mockup when that is the requested scope. Clearly identify simulated behavior and illustrative content.
 
 Use [shared design and content checks](references/design-and-content.md) for every mode, applying only the checks relevant to the task. They are decision criteria, not a mandatory page template.
+
+Use [WCAG accessibility checks](references/accessibility.md) for full reviews and new builds, and for relevant criteria in scoped updates. Accessibility-only requests use that workflow without a marketing redesign. Cover WCAG 2.1 and 2.2 Level AA, including Level A, unless the user specifies another target. Report the version, tested scope, evidence, and manual checks still needed; do not convert missing tools or a passing automated scan into a conformance claim.
 
 ## Establish the brief
 

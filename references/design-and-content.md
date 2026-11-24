@@ -52,6 +52,8 @@ Support claims with available evidence. Missing proof makes a claim unverified, 
 
 Use meaningful headings and link text, image alternatives, labeled controls, visible keyboard focus, and a sensible reading order. Check keyboard operation, zoom/reflow, and usable touch targets for changed journeys. Placeholders are not substitutes for form labels.
 
+Use [the accessibility workflow and criterion index](accessibility.md) to evaluate WCAG 2.1 and 2.2 Level AA, including Level A. It distinguishes measured requirements, version-specific additions, exceptions, and usability advice. Keep any criterion that the available evidence cannot establish as Not tested; preserve the user's requested scope.
+
 Explain what happens after an inquiry. Request only the information the actual workflow needs. Link relevant data-use information when collecting information, using confirmed handling practices rather than invented privacy assurances. A demo must not report successful sending, saving, booking, or payment when nothing happened.
 
 ## Performance and discoverability

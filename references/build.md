@@ -22,6 +22,8 @@ Let the audience and content determine the composition. Avoid repeating one fash
 
 Design for both wide and narrow viewports. Plan how columns, navigation, headings, imagery, and tables adapt. Check the actual exported or hosted artifact: an embedded preview's fixed width or oversized media can produce a poor standalone desktop page.
 
+Apply [WCAG 2.1 and 2.2 AA guidance](accessibility.md) while planning structure, controls, contrast, media, and forms. Include the Level A requirements and the additional 2.2 checks. A visual concept can document accessibility requirements, but cannot establish that unimplemented interaction or assistive-technology behavior passes.
+
 ## Implement useful behavior
 
 Use working destinations for navigation and actions. Implement needed menu, disclosure, tab, and demo states with semantic controls, keyboard access, visible focus, and appropriate labels. Make loading, empty, success, and error states meaningful for the behaviors in scope.
@@ -42,6 +44,8 @@ Choose checks proportional to the work and run the project's relevant build, lin
 - Page titles, descriptions, missing assets, index settings, and redirects relevant to the work.
 
 Fix failures within scope and recheck the affected behavior. Use screenshots of the actual result to support visual claims. Source inspection and a successful build alone do not prove the rendered experience.
+
+For new builds, account for the accessibility reference's full criterion index. For scoped changes, check the affected criteria and shared components. Record actual automated/manual results, map confirmed barriers to their WCAG criterion and version, and retest implemented fixes. Identify unfinished screen-reader, browser-zoom, media, or other human checks explicitly. Do not label the result ADA certified or fully conformant based on these checks alone.
 
 ## Preview, publish, and hand off
 

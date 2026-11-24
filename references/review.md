@@ -10,6 +10,8 @@ View rendered desktop and phone layouts when tools permit it. Record the actual 
 
 Apply [shared checks](design-and-content.md). Compare claims with supplied authoritative information, and distinguish source code, deployed behavior, and older material. Record concrete evidence such as the current wording, a screenshot, an observed destination, or a source location.
 
+Include [WCAG 2.1 and 2.2 AA checks](accessibility.md) in full reviews. For a focused edit, apply the relevant criteria to the changed journey and identify the limited scope. Use available automatic and manual methods, and provide criterion coverage with Passed, Failed, Not applicable, or Not tested status. Keep accessibility coverage separate from the general marketing assessment; untested criteria are not passes.
+
 ## Prioritize by visitor impact
 
 Use priorities that explain what should happen first:

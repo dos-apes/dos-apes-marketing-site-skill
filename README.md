@@ -4,6 +4,8 @@
 
 A reusable skill by Dos Apes for reviewing public websites, improving existing pages, and building new sites. It covers copy, visual hierarchy, brand consistency, calls to action, responsive layout, purposeful motion, useful demonstrations, and practical verification.
 
+Includes **WCAG 2.1 and 2.2 Level AA accessibility checks**, with Level A requirements, criterion-by-criterion coverage, and guidance for automatic and manual testing.
+
 The guidance works with Claude and ChatGPT, for any brand or website. It includes no client profiles, preset brand palettes, product-specific instructions, or required paid services. Supply the context for each project when using it.
 
 ## Choose your assistant
@@ -76,6 +78,23 @@ Use dos-apes-marketing-site-skill to create a working responsive website from my
 
 In ChatGPT, start the examples above with "Use the attached Dos Apes Marketing Site Skill guide" rather than assuming the skill is installed. You can also provide the self-contained guide to another assistant that accepts text instructions. Browser inspection, code editing, and publishing still require appropriate tools and access.
 
+## Accessibility checks
+
+The [accessibility workflow](references/accessibility.md) is included in both the Claude ZIP and the self-contained ChatGPT guide. It applies to full reviews and new builds, with relevant checks for scoped updates. You can also request an accessibility-only review.
+
+- Covers both versions' Level A and AA criteria, including the six additional A/AA criteria in WCAG 2.2 and the updated handling of 2.1's parsing criterion.
+- Guides available automated checks and manual keyboard, focus, contrast, zoom/reflow, screen-reader, form, and media testing.
+- Reports criterion IDs, versions, evidence, priorities, fixes, and retest results, with **Passed**, **Failed**, **Not applicable**, or **Not tested** coverage.
+- Identifies missing tools and unfinished human checks. A screenshot or passing scan does not prove complete WCAG conformance or legal ADA compliance. The skill provides review and remediation guidance, not certification.
+
+```text
+Use the Marketing Website Skill to review this site against WCAG 2.1 and 2.2 Level AA, including Level A. Record the pages and states checked. Map findings to criterion IDs and versions, prioritize fixes, and identify all untested criteria and manual checks still needed. Review only; do not edit or publish the site.
+```
+
+In ChatGPT, attach the guide and explicitly ask the assistant to use it. The skill does not install a scanner or provide browser, screen-reader, or repository access; checks depend on the session's capabilities.
+
+**Already using an earlier version?** Replace/re-upload the Claude skill ZIP, or replace the guide and Project instructions in ChatGPT. Previously downloaded files do not update automatically.
+
 ## Package contents
 
 ```text
@@ -92,6 +111,7 @@ dos-apes-marketing-site-skill/
     design-and-content.md
     review.md
     build.md
+    accessibility.md
 ```
 
 Share the complete ZIP for both editions, or the standalone guide for ChatGPT use. The skill format, generated guide, internal links, portability, and archive integrity have been checked. Installation or execution in a recipient's Claude or ChatGPT account has not been independently verified.
@@ -106,7 +126,7 @@ python scripts/package.py
 
 The script validates the skill, regenerates `chatgpt/dos-apes-marketing-site-guide.txt`, and creates three release downloads in `dist/`:
 
-- `dos-apes-marketing-site-skill.zip`: nine files covering both editions, including the license and README logo.
+- `dos-apes-marketing-site-skill.zip`: ten files covering both editions, including the accessibility reference, license, and README logo.
 - `dos-apes-marketing-site-guide.txt`: the self-contained ChatGPT guide.
 - `dos-apes-marketing-site-project-instructions.txt`: short reusable Project instructions.
 

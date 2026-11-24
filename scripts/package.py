@@ -16,6 +16,7 @@ FILES = (
     "references/design-and-content.md",
     "references/review.md",
     "references/build.md",
+    "references/accessibility.md",
     "chatgpt/dos-apes-marketing-site-guide.txt",
     "chatgpt/project-instructions.txt",
 ) + BINARY_FILES
@@ -23,7 +24,16 @@ ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = "https://github.com/dos-apes/dos-apes-marketing-site-skill"
 GUIDE_NAME = "dos-apes-marketing-site-guide.txt"
 PROJECT_INSTRUCTIONS_NAME = "dos-apes-marketing-site-project-instructions.txt"
-GUIDE_SOURCES = ("SKILL.md", "references/design-and-content.md", "references/review.md", "references/build.md")
+GUIDE_SOURCES = ("SKILL.md", "references/design-and-content.md", "references/review.md", "references/build.md", "references/accessibility.md")
+REFERENCE_URLS = {
+    "https://www.w3.org/TR/WCAG21/",
+    "https://www.w3.org/TR/WCAG22/",
+    "https://www.w3.org/WAI/standards-guidelines/wcag/faq/",
+    "https://www.w3.org/WAI/test-evaluate/",
+    "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+    "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html",
+    "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html",
+}
 
 
 def require(condition, message):
@@ -37,6 +47,7 @@ def build_chatgpt_guide():
         "review.md": "Review or update an existing website",
         "build.md": "Build a new site or implement updates",
         "design-and-content.md": "Shared design and content checks",
+        "accessibility.md": "Accessibility review for WCAG 2.1 and 2.2 AA",
     }
     sections = []
     source_hash = hashlib.sha256()
@@ -52,6 +63,8 @@ def build_chatgpt_guide():
 
         def embedded_reference(match):
             label, target = match.groups()
+            if target.startswith("https://"):
+                return match.group(0)
             name = PurePosixPath(target.split("#", 1)[0]).name
             require(name in headings, "Unresolved reference in standalone guide: " + target)
             return label + ' (see "' + headings[name] + '" in this guide)'
@@ -62,7 +75,8 @@ def build_chatgpt_guide():
     introduction = (
         "DOS APES MARKETING SITE SKILL — CHATGPT GUIDE\n\n"
         "This self-contained edition includes the same workflow, design checks, "
-        "review guidance, and build guidance as the native skill package.\n\n"
+        "review guidance, build guidance, and WCAG 2.1/2.2 AA accessibility "
+        "workflow as the native skill package.\n\n"
         "HOW TO USE\n"
         "Attach this file to a ChatGPT conversation and explicitly ask: "
         "'Use the attached Dos Apes Marketing Site Skill guide for this task.' "
@@ -120,7 +134,7 @@ def package():
         require(bool(text.strip()), "Empty file: " + relative)
         require(not re.search(r"(?i)\b[a-z]:[\\/]|/Users/|/home/|mailto:", text), "Remove machine-specific paths or email addresses: " + relative)
         urls = re.findall(r"https?://[^\s)<>]+", text)
-        require(all(url == REPOSITORY or url.startswith(REPOSITORY + "/") for url in urls), "Unexpected external source link: " + relative)
+        require(all(url == REPOSITORY or url.startswith(REPOSITORY + "/") or url.split("#", 1)[0] in REFERENCE_URLS for url in urls), "Unexpected external source link: " + relative)
         targets = re.findall(r"\[[^\]]+\]\(([^)]+)\)", text)
         targets += re.findall(r'<img\b[^>]*\bsrc="([^"]+)"', text)
         for target in targets:
