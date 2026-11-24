@@ -1,8 +1,10 @@
-# Dos Apes Marketing Site Skill
+<img src="assets/dos-apes-coding-logo.png" alt="Dos Apes coding logo" width="640">
+
+# Marketing Website Skill
 
 A reusable skill by Dos Apes for reviewing public websites, improving existing pages, and building new sites. It covers copy, visual hierarchy, brand consistency, calls to action, responsive layout, purposeful motion, useful demonstrations, and practical verification.
 
-The guidance works with any brand. It includes no client profiles, preset brand palettes, product-specific instructions, or required paid services. Supply the context for each project when using it.
+The guidance works with Claude and ChatGPT, for any brand or website. It includes no client profiles, preset brand palettes, product-specific instructions, or required paid services. Supply the context for each project when using it.
 
 ## Choose your assistant
 
@@ -81,6 +83,8 @@ dos-apes-marketing-site-skill/
   SKILL.md
   README.md
   LICENSE
+  assets/
+    dos-apes-coding-logo.png
   chatgpt/
     dos-apes-marketing-site-guide.txt
     project-instructions.txt
@@ -102,7 +106,7 @@ python scripts/package.py
 
 The script validates the skill, regenerates `chatgpt/dos-apes-marketing-site-guide.txt`, and creates three release downloads in `dist/`:
 
-- `dos-apes-marketing-site-skill.zip`: eight files covering both editions, including the license.
+- `dos-apes-marketing-site-skill.zip`: nine files covering both editions, including the license and README logo.
 - `dos-apes-marketing-site-guide.txt`: the self-contained ChatGPT guide.
 - `dos-apes-marketing-site-project-instructions.txt`: short reusable Project instructions.
 

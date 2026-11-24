@@ -8,6 +8,7 @@ import zipfile
 
 
 NAME = "dos-apes-marketing-site-skill"
+BINARY_FILES = ("assets/dos-apes-coding-logo.png",)
 FILES = (
     "SKILL.md",
     "README.md",
@@ -17,7 +18,7 @@ FILES = (
     "references/build.md",
     "chatgpt/dos-apes-marketing-site-guide.txt",
     "chatgpt/project-instructions.txt",
-)
+) + BINARY_FILES
 ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = "https://github.com/dos-apes/dos-apes-marketing-site-skill"
 GUIDE_NAME = "dos-apes-marketing-site-guide.txt"
@@ -111,12 +112,18 @@ def package():
         path = ROOT / relative
         require(path.is_file() and not path.is_symlink(), "Missing or unsafe file: " + relative)
         require(path.resolve().is_relative_to(ROOT), "File escapes the repository: " + relative)
+        if relative in BINARY_FILES:
+            contents[relative] = path.read_bytes()
+            require(contents[relative].startswith(b"\x89PNG\r\n\x1a\n"), "Expected a PNG asset: " + relative)
+            continue
         text = path.read_text(encoding="utf-8")
         require(bool(text.strip()), "Empty file: " + relative)
         require(not re.search(r"(?i)\b[a-z]:[\\/]|/Users/|/home/|mailto:", text), "Remove machine-specific paths or email addresses: " + relative)
         urls = re.findall(r"https?://[^\s)<>]+", text)
         require(all(url == REPOSITORY or url.startswith(REPOSITORY + "/") for url in urls), "Unexpected external source link: " + relative)
-        for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", text):
+        targets = re.findall(r"\[[^\]]+\]\(([^)]+)\)", text)
+        targets += re.findall(r'<img\b[^>]*\bsrc="([^"]+)"', text)
+        for target in targets:
             if target.startswith(("https://", "#")):
                 continue
             linked = (path.parent / target.split("#", 1)[0]).resolve()
